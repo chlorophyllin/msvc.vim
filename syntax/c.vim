@@ -216,6 +216,167 @@ endif
 
 syn keyword	cStructure	struct union enum typedef
 syn keyword	cStorageClass	static register auto volatile extern const
+
+if !exists("c_gnu")
+  " VS 2012 SAL annotations
+  " See: http://msdn.microsoft.com/en-us/library/ms182032.aspx
+  syn keyword     cStorageClass   _In_ _Inout_ _Out_ _Outptr_ _In_count_
+  syn keyword     cStorageClass   _In_z_ _Inout_z_ _In_reads_ _In_reads_bytes_ _In_reads_z_
+  syn keyword     cStorageClass   _In_reads_or_z_ _Out_writes_ _Out_writes_bytes_ _Out_writes_z_
+  syn keyword     cStorageClass   _Inout_updates_ _Inout_updates_bytes_ _Inout_updates_z_
+  syn keyword     cStorageClass   _Out_writes_to_ _Out_writes_bytes_to_ _Out_writes_all_
+  syn keyword     cStorageClass   _Out_writes_bytes_all_ _Inout_updates_to_
+  syn keyword     cStorageClass   _Inout_updates_bytes_to_ _Inout_updates_all_
+  syn keyword     cStorageClass   _Inout_updates_bytes_all_ _In_reads_to_ptr_ _In_reads_to_ptr_z_
+  syn keyword     cStorageClass   _Out_writes_to_ptr_ _Out_writes_to_ptr_z_
+
+  syn keyword     cStorageClass   _In_opt_ _Inout_opt_ _Out_opt_ _In_opt_z_ _Inout_opt_z_
+  syn keyword     cStorageClass   _In_reads_opt_ _In_reads_bytes_opt_ _In_reads_opt_z_
+  syn keyword     cStorageClass   _Out_writes_opt_ _Out_writes_opt_z_ _Inout_updates_opt_
+  syn keyword     cStorageClass   _Inout_updates_bytes_opt_ _Inout_updates_opt_z_
+  syn keyword     cStorageClass   _Out_writes_to_opt_ _Out_writes_bytes_to_opt_ _Out_writes_all_opt_
+  syn keyword     cStorageClass   _Out_writes_bytes_all_opt_ _Inout_updates_to_opt_
+  syn keyword     cStorageClass   _Inout_updates_bytes_to_opt_ _Inout_updates_all_opt_
+  syn keyword     cStorageClass   _Inout_updates_bytes_all_opt_ _In_reads_to_ptr_opt_
+  syn keyword     cStorageClass   _In_reads_to_ptr_opt_z_ _Out_writes_to_ptr_opt_
+  syn keyword     cStorageClass   _Out_writes_to_ptr_opt_z_
+
+  syn keyword     cStorageClass   _Outptr_ _Outptr_opt_ _Outptr_result_maybenull_
+  syn keyword     cStorageClass   _Outptr_opt_result_maybenull_
+
+  syn keyword     cStorageClass   _Outptr_result_z_ _Outptr_opt_result_z_
+  syn keyword     cStorageClass   _Outptr_result_maybenull_z_ _Ouptr_opt_result_maybenull_z_
+  syn keyword     cStorageClass   _COM_Outptr_ _COM_Outptr_opt_ _COM_Outptr_result_maybenull_
+  syn keyword     cStorageClass   _COM_Outptr_opt_result_maybenull_
+  syn keyword     cStorageClass   _Outptr_result_buffer_ _Outptr_result_bytebuffer_
+  syn keyword     cStorageClass   _Outptr_opt_result_buffer_ _Outptr_opt_result_bytebuffer_
+  syn keyword     cStorageClass   _Outptr_result_buffer_to_ _Outptr_result_bytebuffer_to_
+  syn keyword     cStorageClass   _Outptr_opt_result_buffer_to_ _Outptr_opt_result_bytebuffer_to_
+  syn keyword     cOperator       _Result_nullonfailure_ _Result_zeroonfailure_
+  syn keyword     cStorageClass   _Outptr_result_nullonfailure_ _Outptr_opt_result_nullonfailure_
+  syn keyword     cStorageClass   _Outref_result_nullonfailure_
+
+  syn keyword     cStorageClass   _Outref_ _Outref_result_maybenull_ _Outref_result_buffer_
+  syn keyword     cStorageClass   _Outref_result_bytebuffer_ _Outref_result_buffer_to_
+  syn keyword     cStorageClass   _Outref_result_bytebuffer_to_ _Outref_result_buffer_all_
+  syn keyword     cStorageClass   _Outref_result_bytebuffer_all_ _Outref_result_buffer_maybenull_
+  syn keyword     cStorageClass   _Outref_result_bytebuffer_maybenull_ _Outref_result_buffer_to_maybenull_
+  syn keyword     cStorageClass   _Outref_result_bytebuffer_to_maybenull_ _Outref_result_buffer_all_maybenull_
+  syn keyword     cStorageClass   _Outref_result_bytebuffer_all_maybenull_
+
+  syn keyword     cStorageClass   _Ret_z_ _Ret_writes_ _Ret_writes_bytes_ _Ret_writes_z_
+  syn keyword     cStorageClass   _Ret_writes_to_ _Ret_writes_maybenull_ _Ret_writes_to_maybenull_
+  syn keyword     cStorageClass   _Ret_writes_maybenull_z_ _Ret_maybenull_ _Ret_maybenull_z_
+  syn keyword     cStorageClass   _Ret_null_ _Ret_notnull_ _Ret_writes_bytes_to_
+  syn keyword     cStorageClass   _Ret_writes_bytes_maybenull_ _Ret_writes_bytes_to_maybenull_
+
+  syn keyword     cOperator       _In_range_ _Out_range_ _Ret_range_ _Deref_in_range_
+  syn keyword     cOperator       _Deref_out_range_ _Deref_inout_range_ _Field_range_
+  syn keyword     cOperator       _Pre_equal_to_ _Post_equal_to_ _Struct_size_bytes_ _Satisfies_
+
+  " Function annotations
+  syn keyword     cStorageClass   _Called_from_function_class_ _Check_return_ _Function_class_
+  syn keyword     cStorageClass   _Raises_SEH_exception_ _Maybe_raises_SEH_exception_
+  syn keyword     cStorageClass   _Must_inspect_result_ _Use_decl_annotations_
+
+  " Success/failure annotations
+  syn keyword     cOperator       _Always_ _On_failure_ _Return_type_success_ _Success_
+
+  " Struct and class annotations
+  syn keyword     cOperator       _Field_range_ _Field_size_ _Field_size_opt_ _Field_size_bytes_
+  syn keyword     cOperator       _Field_size_bytes_opt_ _Field_size_part_ _Field_size_part_opt_
+  syn keyword     cOperator       _Field_size_bytes_part_ _Field_size_bytes_part_opt_
+  syn keyword     cOperator       _Field_size_full_ _Field_size_full_opt_ _Field_size_bytes_full_
+  syn keyword     cOperator       _Field_size_bytes_full_opt_ _Struct_size_bytes_
+
+  " Concurrency SAL annotations
+  " See: http://msdn.microsoft.comi/en-us/library/hh916381.aspx
+  syn keyword     cStorageClass   _Acquires_exclusive_lock_ _Acquires_lock_
+
+  syn keyword     cStorageClass   _Acquires_nonreentrant_lock_ _Acquries_shared_lock_
+  syn keyword     cStorageClass   _Creates_lock_level_ _Has_lock_kind_
+  syn keyword     cType           _Lock_kind_mutex_ _Lock_kind_event_ _Lock_kind_semaphore_
+  syn keyword     cType           _Lock_kind_spin_lock_ _Lock_kind_critical_section_
+  syn keyword     cStorageClass   _Has_lock_level_ _Lock_level_order_
+  syn keyword     cStorageClass   _Post_same_lock_ _Releases_exclusive_lock_
+  syn keyword     cStorageClass   _Releases_lock_ _Releases_nonreentrant_lock_
+  syn keyword     cStorageClass   _Releases_shared_lock_ _Requires_lock_held_
+  syn keyword     cStorageClass   _Requires_lock_not_held_ _Requires_no_locks_held_
+  syn keyword     cStorageClass   _Requires_shared_lock_held_ _Requires_exclusive_lock_held_
+  syn keyword     cType           _Global_cancel_spin_lock_ _Global_critical_region_
+  syn keyword     cType           _Global_interlock_ _Global_priority_region_
+  syn keyword     cStorageClass   _Guarded_by_ _Interlocked_ _Interlocked_operand_
+  syn keyword     cStorageClass   _Write_guarded_by_
+
+  " Structural annotations
+  syn keyword     cStatement      _At_ _At_buffer_ _Group_ _When_
+
+  " Intrinsic functions
+  syn keyword     cStatement      _Curr_
+  syn keyword     CStorageClass   _Inexpressible_
+  syn keyword     cOperator       _Old_ _Param_
+  syn keyword     cOperator       _Nullterm_length_ _String_length_
+
+  " SAL2 annotations for drivers
+  " See: http://msdn.microsoft.com/en-us/library/windows/hardware/hh454237(v=vs.85).aspx
+  syn keyword     cStorageClass   _IRQL_requires_max_ _IRQL_requires_min_ _IRQL_requires_
+  syn keyword     cStorageClass   _IRQL_raises_ _IRQL_saves_ _IRQL_restores_ _IRQL_saves_global_
+  syn keyword     cStorageClass   _IRQL_restores_global_ _IRQL_always_function_min_
+  syn keyword     cStorageClass   _IRQL_always_function_max_ _IRQL_requires_same_
+  syn keyword     cStorageClass   _IRQL_uses_cancel_ _IRQL_is_cancel_
+  syn keyword     cOperator       _Kernel_float_saved_ _Kernel_float_restored_ _Kernel_float_used_
+  syn keyword     cStorageClass   _Kernel_clear_do_init_
+  syn keyword     cStorageClass   _Kernel_IoGetDmaAdapter_
+
+  " VS 2005 CRT SAL annotations
+  " See: http://msdn.microsoft.com/en-us/library/ms235402(v=vs.80).aspx
+  " TODO Add support for _z and _nz annotations
+  syn keyword     cStorageClass   FASTCALL __fastcall
+  syn keyword     cStorageClass   __in __out __inout __in_opt __out_opt __inout_opt
+  syn keyword     cStorageClass   __in_bcount __in_ecount
+  syn keyword     cStorageClass   __inout_bcount __inout_ecount __inout_bcount_full
+  syn keyword     cStorageClass   __inout_bcount_part __inout_ecount_full __inout_ecount_part
+  syn keyword     cStorageClass   __in_bcount_opt
+  syn keyword     cStorageClass   __out_bcount __out_ecount __out_bcount_full __out_bcount_part
+  syn keyword     cStorageClass   __out_ecount_full __out_ecount_part __out_bcount_opt
+  syn keyword     cStorageClass   __success __nullterminated __nullnullterminated __reserved
+  syn keyword     cStorageClass   __checkReturn __typefix __override __callback __format_string
+  syn keyword     cStorageClass   __blocksOn __fallthrough
+
+  " MS types
+  syn keyword     cType           NTSTATUS HRESULT
+  syn keyword     cType           BOOLEAN PBOOLEAN BOOL PBOOL
+  syn keyword     cType           PLONG PULONG LONG ULONG LONGLONG ULONGLONG SHORT USHORT PUSHORT
+  syn keyword     cType           PLONGLONG PULONGLONG PSHORT ULONG64 LONG64 PULONG64 PLONG64
+  syn keyword     cType           ULONG_PTR CHAR PCHAR UCHAR PUCHAR WCHAR PWCHAR
+  syn keyword     cType           LARGE_INTEGER PLARGE_INTEGER UNICODE_STRING PUNICODE_STRING
+  syn keyword     cType           VOID PVOID
+  " GUIDs too because everyone loves GUIDs.
+  syn keyword     cType           GUID PGUID 
+
+  " Microsoft specific types
+  " http://msdn.microsoft.com/en-us/library/cc953fe1(v=vs.80).aspx
+  syn keyword     cType           __int __int8 __int16 __int32 __int64
+  syn keyword     ctype           __wchar_t
+  syn keyword     cType           __m64 __m128 __m128d __m128i __ptr32 __ptr64
+
+  syn keyword     cConstant       TRUE FALSE
+
+  " Microsoft-specific numerical limits
+  " http://msdn.microsoft.com/en-us/library/296az74e.aspx
+  syn keyword     cConstant       _I64_MIN _I64_MAX _UI64_MAX
+  syn keyword     cConstant       FLT_DIG DBL_DIG LDBL_DIG
+  syn keyword     cConstant       FLT_EPSILON DBL_EPSILON LDBL_EPSILON FLT_GUARD
+  syn keyword     cConstant       FLT_MANT_DIG DBL_MANT_DIG LDBL_MANT_DIG
+  syn keyword     cConstant       FLT_MAX DBL_MAX LDBL_MAX
+  syn keyword     cConstant       FLT_MAX_10_EXP DBL_MAX_10_EXP LDBL_MAX_10_EXP
+  syn keyword     cConstant       FLT_MAX_EXP DBL_MAX_EXP LDBL_MAX_EXP
+  syn keyword     cConstant       FLT_MIN DBL_MIN LDBL_MIN
+  syn keyword     cConstant       FLT_MIN_10_EXP DBL_MIN_10_EXP LDBL_MIN_10_EXP
+  syn keyword     cConstant       FLT_MIN_EXP DBL_MIN_EXP LDBL_MIN_EXP
+  syn keyword     cConstant       FLT_NORMALIZE FLT_RADIX _DBL_RADIX _LDBL_RADIX
+  syn keyword     cConstant       FLT_ROUNDS _DBL_ROUNDS _LDBL_ROUNDS
+endif
 if exists("c_gnu")
   syn keyword	cStorageClass	inline __attribute__
 endif

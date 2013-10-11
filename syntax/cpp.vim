@@ -33,6 +33,10 @@ syn keyword cppStructure	class typename template namespace
 syn keyword cppNumber		NPOS
 syn keyword cppBoolean		true false
 
+" C++/CX extensions
+syn keyword cppType             ref sealed
+syn keyword cppStructure        property
+
 " The minimum and maximum operators in GNU C++
 syn match cppMinMax "[<>]?"
 
