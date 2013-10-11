@@ -13,16 +13,16 @@ Install
 
 msvc.vim is [Pathogen](https://github.com/tpope/vim-pathogen)-compatible. If you have Pathogen installed, then installing msvc-vim is a breeze:
 
-    > cd "c:\Program Files (x86)\Vim\vimfiles\bundle"                    # dem spaces
+    > cd "c:\Program Files (x86)\Vim\vimfiles\bundle"                    # dem spaces.
     > git clone https://github.com/davidzchen/msvc.vim.git
 
-If you do not have Pathogen, you should [get Pathogen](https://github.com/tpope/vim-pathogen). If you really don't want to use Pathogen or any [other Vim plugin manager](https://github.com/gmarik/vundle), then you can install msvc.vim the manual way (assuming GNUWin32 since [`copy` can be oh so funny](http://support.microsoft.com/kb/71161)):
+If you do not have Pathogen, you should [get Pathogen](https://github.com/tpope/vim-pathogen). If you really don't want to use Pathogen or any [other Vim plugin manager](https://github.com/gmarik/vundle), then you can install msvc.vim the manual way (assuming GNUWin32 `cp` since [`copy` can be oh so funny](http://support.microsoft.com/kb/71161)):
 
     > mkdir tmp
     > cd tmp
     > git clone https://github.com/davidzchen/msvc.vim.git
-    > cp ftdetect\*.vim "c:\Program Files (x86)\Vim\vimfiles\ftdetect"   # the spaces
-    > cp syntax\*.vim "c:\Program Files (x86)\Vim\vimfiles\ftdetect"     # oh the spaces
+    > cp ftdetect\*.vim "c:\Program Files (x86)\Vim\vimfiles\ftdetect"   # the spaces.
+    > cp syntax\*.vim "c:\Program Files (x86)\Vim\vimfiles\syntax"       # oh, the spaces.
 
 References
 ----------
