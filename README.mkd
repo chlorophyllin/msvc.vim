@@ -6,12 +6,12 @@ Motivations
 -----------
 Pretty colors.
 
-N.B. Not everyone might like pretty colors, but many people do.
+*N.B.* Not everyone might like pretty colors, but many people do.
 
 Install
 -------
 
-msvc.vim is [Pathogen](https://github.com/tpope/vim-pathogen)-compatible. If you have Pathogen installed, then installing msvc-vim is a breeze:
+msvc.vim is [Pathogen](https://github.com/tpope/vim-pathogen)-compatible. If you have Pathogen installed, then installing msvc.vim is a breeze:
 
     > cd "c:\Program Files (x86)\Vim\vimfiles\bundle"                    # dem spaces.
     > git clone https://github.com/davidzchen/msvc.vim.git
@@ -27,8 +27,8 @@ If you do not have Pathogen, you should [get Pathogen](https://github.com/tpope/
 References
 ----------
 * [VS 2012 SAL Annotations](http://msdn.microsoft.com/en-us/library/ms235402.aspx)
-* [SAL Annotations for drivers](http://msdn.microsoft.com/en-us/library/windows/hardware/hh454237(v=vs.85).aspx)
-* [VS 2005 SAL Annotations](http://msdn.microsoft.com/en-us/library/ms235402(v=vs.80).aspx)
-* [Fundamental Types](http://msdn.microsoft.com/en-us/library/cc953fe1(v=vs.80).aspx)
+* [SAL Annotations for drivers](http://msdn.microsoft.com/en-us/library/windows/hardware/hh454237%28v=vs.85%28.aspx)
+* [VS 2005 SAL Annotations](http://msdn.microsoft.com/en-us/library/ms235402%28v=vs.80%28.aspx)
+* [Fundamental Types](http://msdn.microsoft.com/en-us/library/cc953fe1%28v=vs.80%28.aspx)
 * [Integer Limits](http://msdn.microsoft.com/en-us/library/296az74e.aspx)
 * [Annotating Locking Behavior](http://msdn.microsoft.com/en-us/library/hh916381.aspx)
