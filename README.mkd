@@ -1,0 +1,6 @@
+msvc.vim
+========
+Extending Vim C and C++ syntax highlighting for MSVC-specific types, keywords,
+and annotations.
+
+
